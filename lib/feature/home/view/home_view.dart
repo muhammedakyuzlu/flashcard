@@ -22,6 +22,7 @@ class _HomeViewState extends State<HomeView> {
       appBar: AppBar(title: const Text('Material App Bar')),
       body: Column(
         children: [
+
           ElevatedButton(onPressed: (){
 
             if (!kDebugMode) {
@@ -44,6 +45,24 @@ class _HomeViewState extends State<HomeView> {
             },
             child: const Text(LocaleKeys.general_button_save).tr(),
           ),
+
+          // change theme
+          ElevatedButton(
+            onPressed: () {
+      
+            },
+            child: const Text(LocaleKeys.general_button_save).tr(),
+          ),
+
+          Container(
+            height: 200,
+            width: 200,
+            color: Theme.of(context).colorScheme.primary,
+            child: const Center(
+              child: Text('Container'),
+            ),
+          ),
+          
         ],
       ),
     );
