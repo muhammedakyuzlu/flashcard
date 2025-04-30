@@ -9,5 +9,7 @@ analyzer:
     - "lib/generated_plugin_registrant.dart"
   errors:
     lines_longer_than_80_chars: ignore
+    depend_on_referenced_packages: ignore
+    flutter_style_todos: ignore
 linter:
   rules:
