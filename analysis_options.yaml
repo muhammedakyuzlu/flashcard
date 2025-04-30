@@ -2,9 +2,8 @@ include: package:very_good_analysis/analysis_options.yaml
 
 analyzer:
   exclude:
-    - "/*.g.dart"
-    - "*.g.dart"
-    - "/*.gen.dart"
+    - "**/*.g.dart"  # Exclude all *.g.dart files in any directory
+    - "**/*.gen.dart"  # Exclude all *.gen.dart files
     - "test/.test_coverage.dart"
     - "bin/cache/**"
     - "lib/generated_plugin_registrant.dart"
@@ -12,4 +11,3 @@ analyzer:
     lines_longer_than_80_chars: ignore
 linter:
   rules:
-  
