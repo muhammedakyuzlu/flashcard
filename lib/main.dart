@@ -1,17 +1,17 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flashcard/feature/home/view/home_view.dart';
+import 'package:flashcard/product/init/application_initialize.dart';
 import 'package:flashcard/product/init/product_localization.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await EasyLocalization.ensureInitialized();
-
-  runApp(ProductLocalization(child: const MyApp()));
+  // Initialize the application [language, orientation, etc.]
+  await ApplicationInitialize().make();
+  runApp(ProductLocalization(child: const _MyApp()));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class _MyApp extends StatelessWidget {
+  const _MyApp();
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +19,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      debugShowCheckedModeBanner:
-          false, // Set to false to hide the debug banner
+      debugShowCheckedModeBanner: false,
       title: 'Material App',
       home: const HomeView(),
     );
