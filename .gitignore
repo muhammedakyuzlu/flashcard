@@ -46,3 +46,6 @@ app.*.map.json
 
 # ignore the generated files
 *.g.dart
+
+# environment variables
+*.env

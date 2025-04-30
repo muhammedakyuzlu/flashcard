@@ -1,7 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flashcard/product/init/config/app_environment.dart';
 import 'package:flashcard/product/init/language/locale_keys.g.dart';
 import 'package:flashcard/product/init/product_localization.dart';
 import 'package:flashcard/product/utility/constants/enums/locales.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 /// HomeView is the main view of the application.
@@ -20,6 +22,17 @@ class _HomeViewState extends State<HomeView> {
       appBar: AppBar(title: const Text('Material App Bar')),
       body: Column(
         children: [
+          ElevatedButton(onPressed: (){
+
+            if (!kDebugMode) {
+                // Code that runs when NOT in debug mode (e.g., release mode)
+                print('Running in release mode or non-debug mode');
+              } else {
+                // Code that runs when in debug mode
+                print('Running in debug mode');
+              }
+
+          }, child: Text(AppEnvironmentItems.apiKey.value),),
           const Text('Home View'),
           ElevatedButton(
             onPressed: () {
