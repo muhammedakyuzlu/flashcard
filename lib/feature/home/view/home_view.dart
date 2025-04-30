@@ -5,6 +5,7 @@ import 'package:flashcard/product/init/product_localization.dart';
 import 'package:flashcard/product/utility/constants/enums/locales.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:kartal/kartal.dart';
 
 /// HomeView is the main view of the application.
 class HomeView extends StatefulWidget {
@@ -57,7 +58,8 @@ class _HomeViewState extends State<HomeView> {
           Container(
             height: 200,
             width: 200,
-            color: Theme.of(context).colorScheme.primary,
+            // color: Theme.of(context).colorScheme.primary,
+            color: context.general.colorScheme.secondary,
             child: const Center(
               child: Text('Container'),
             ),
