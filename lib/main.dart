@@ -1,9 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flashcard/feature/home/view/home_view.dart';
 import 'package:flashcard/product/init/application_initialize.dart';
 import 'package:flashcard/product/init/product_localization.dart';
 import 'package:flashcard/product/init/theme/custom_dark_theme.dart';
 import 'package:flashcard/product/init/theme/custom_light_theme.dart';
+import 'package:flashcard/product/navigation/app_router.dart';
 import 'package:flutter/material.dart';
 void main() async {
   // Initialize the application [language, orientation, etc.]
@@ -11,12 +11,12 @@ void main() async {
   runApp(ProductLocalization(child: const _MyApp()));
 }
 
-class _MyApp extends StatelessWidget {
+final class _MyApp extends StatelessWidget {
   const _MyApp();
-
+  static final _appRouter = AppRouter();
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
@@ -25,7 +25,7 @@ class _MyApp extends StatelessWidget {
       themeMode: ThemeMode.dark,
       debugShowCheckedModeBanner: false,
       title: 'Material App',
-      home: const HomeView(),
+      routerConfig: _appRouter.config(),
     );
   }
 }
