@@ -37,6 +37,7 @@ flutter_gen:
   integrations:
     lottie: true
     flutter_svg: true
+    image: true
 
 flutter:
   assets:
