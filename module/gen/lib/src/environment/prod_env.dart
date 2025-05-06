@@ -1,5 +1,5 @@
 import 'package:envied/envied.dart';
-import 'package:flashcard/product/init/config/app_configuration.dart';
+import 'app_configuration.dart';
 
 part 'prod_env.g.dart';
 

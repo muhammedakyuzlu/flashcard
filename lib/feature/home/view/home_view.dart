@@ -5,6 +5,7 @@ import 'package:flashcard/product/init/product_localization.dart';
 import 'package:flashcard/product/utility/constants/enums/locales.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:gen/gen.dart';
 import 'package:kartal/kartal.dart';
 
 /// HomeView is the main view of the application.
@@ -22,19 +23,21 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       appBar: AppBar(title: const Text('Material App Bar')),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        
         children: [
-
-          ElevatedButton(onPressed: (){
-
-            if (!kDebugMode) {
+          ElevatedButton(
+            onPressed: () {
+              if (!kDebugMode) {
                 // Code that runs when NOT in debug mode (e.g., release mode)
                 print('Running in release mode or non-debug mode');
               } else {
                 // Code that runs when in debug mode
                 print('Running in debug mode');
               }
-
-          }, child: Text(AppEnvironmentItems.apiKey.value),),
+            },
+            child: Text(AppEnvironmentItems.apiKey.value),
+          ),
           const Text('Home View'),
           ElevatedButton(
             onPressed: () {
@@ -49,9 +52,7 @@ class _HomeViewState extends State<HomeView> {
 
           // change theme
           ElevatedButton(
-            onPressed: () {
-      
-            },
+            onPressed: () {},
             child: const Text(LocaleKeys.general_button_save).tr(),
           ),
 
@@ -60,11 +61,23 @@ class _HomeViewState extends State<HomeView> {
             width: 200,
             // color: Theme.of(context).colorScheme.primary,
             color: context.general.colorScheme.secondary,
-            child: const Center(
-              child: Text('Container'),
+            child: Center(
+              child: Text(
+                'Container',
+                style: context.general.textTheme.titleLarge,
+              ),
             ),
           ),
-          
+          Assets.icons.iconCloseEye.svg(
+            package: 'gen',
+            color: context.general.colorScheme.primary,
+          ),
+          Assets.lottie.lottieChangeTheme.lottie(
+            package: 'gen',
+            height: 100,
+            width: 100,
+
+          ),
         ],
       ),
     );
