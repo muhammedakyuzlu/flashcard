@@ -8,6 +8,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gen/gen.dart';
 import 'package:kartal/kartal.dart';
+import 'package:widgets/widgets.dart';
 
 
 @RoutePage()
@@ -80,6 +81,15 @@ class _HomeViewState extends State<HomeView> {
             height: 100,
             width: 100,
 
+          ),
+          ElevatedButton(
+            onPressed: () {
+              SuccessDialog.show(
+                title: 'Success',
+                context: context,
+              );
+            },
+            child: const Text('Go to Home View'),
           ),
         ],
       ),
