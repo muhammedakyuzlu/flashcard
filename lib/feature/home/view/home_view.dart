@@ -4,12 +4,12 @@ import 'package:flashcard/product/init/config/app_environment.dart';
 import 'package:flashcard/product/init/language/locale_keys.g.dart';
 import 'package:flashcard/product/init/product_localization.dart';
 import 'package:flashcard/product/utility/constants/enums/locales.dart';
+import 'package:flashcard/product/widget/padding/project_padding.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gen/gen.dart';
 import 'package:kartal/kartal.dart';
 import 'package:widgets/widgets.dart';
-
 
 @RoutePage()
 /// HomeView is the main view of the application.
@@ -28,7 +28,7 @@ class _HomeViewState extends State<HomeView> {
       appBar: AppBar(title: const Text('Material App Bar')),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        
+
         children: [
           ElevatedButton(
             onPressed: () {
@@ -80,16 +80,29 @@ class _HomeViewState extends State<HomeView> {
             package: 'gen',
             height: 100,
             width: 100,
-
           ),
           ElevatedButton(
             onPressed: () {
-              SuccessDialog.show(
-                title: 'Success',
-                context: context,
-              );
+              SuccessDialog.show(title: 'Success', context: context);
             },
             child: const Text('Go to Home View'),
+          ),
+          Padding(
+            padding: const ProjectPadding.allNormal(),
+            child: AdaptAllView(
+              phone: Text(
+                ''.ext.version,
+                style: context.general.textTheme.titleLarge,
+              ),
+              tablet: Text(
+                ''.ext.version,
+                style: context.general.textTheme.bodyLarge,
+              ),
+              desktop: Text(
+                ''.ext.version,
+                style: context.general.textTheme.headlineLarge,
+              ),
+            ),
           ),
         ],
       ),
