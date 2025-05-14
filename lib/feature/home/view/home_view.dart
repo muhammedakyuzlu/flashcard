@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flashcard/feature/home/view/mixin/home_view_mixin.dart';
 import 'package:flashcard/product/init/config/app_environment.dart';
 import 'package:flashcard/product/init/language/locale_keys.g.dart';
 import 'package:flashcard/product/init/product_localization.dart';
@@ -21,7 +22,8 @@ class HomeView extends StatefulWidget {
   State<HomeView> createState() => _HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _HomeViewState extends State<HomeView> with HomeViewMixin {
+  List<User> _users = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +33,7 @@ class _HomeViewState extends State<HomeView> {
 
         children: [
           ElevatedButton(
-            onPressed: () {
+            onPressed: () async{
               if (!kDebugMode) {
                 // Code that runs when NOT in debug mode (e.g., release mode)
                 print('Running in release mode or non-debug mode');
@@ -39,6 +41,18 @@ class _HomeViewState extends State<HomeView> {
                 // Code that runs when in debug mode
                 print('Running in debug mode');
               }
+
+
+
+          _users = await loginService.users();
+
+
+          setState(() {});
+
+
+          // SuccessDialog.show(title: 'title', context: context);
+
+        
             },
             child: Text(AppEnvironmentItems.apiKey.value),
           ),
@@ -102,6 +116,19 @@ class _HomeViewState extends State<HomeView> {
                 ''.ext.version,
                 style: context.general.textTheme.headlineLarge,
               ),
+            ),
+          ),
+                    Expanded(
+            child: ListView.builder(
+              itemCount: _users.length,
+
+              itemBuilder: (BuildContext context, int index) {
+                return ListTile(
+                  title: Text(_users[index].userId.toString()),
+
+                  subtitle: Text(_users[index].body.toString()),
+                );
+              },
             ),
           ),
         ],
