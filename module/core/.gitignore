@@ -29,3 +29,11 @@ migrate_working_dir/
 .flutter-plugins
 .flutter-plugins-dependencies
 build/
+
+
+
+
+# cache files
+*.dylib
+test/hive/
+libisar_linux_x64.so
