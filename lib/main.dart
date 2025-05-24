@@ -8,6 +8,8 @@ import 'package:flashcard/product/navigation/app_router.dart';
 import 'package:flashcard/product/state/view_model/product_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:widgets/widgets.dart';
+
 void main() async {
   // Initialize the application [language, orientation, etc.]
   await ApplicationInitialize().make();
@@ -29,6 +31,7 @@ final class _MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Material App',
       routerConfig: _appRouter.config(),
+      builder: CustomResponsive.build,
     );
   }
 }
