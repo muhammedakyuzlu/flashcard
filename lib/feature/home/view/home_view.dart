@@ -52,12 +52,14 @@ class _HomeViewState extends BaseState<HomeView> with HomeViewMixin {
 
                 // _users = await loginService.users();
 
-                productViewModel.changeThemeMode(productViewModel.state.themeMode ==
-                    ThemeMode.light
-                    ? ThemeMode.dark
-                    : ThemeMode.light,);
+                productViewModel.changeThemeMode(
+                  productViewModel.state.themeMode == ThemeMode.light
+                      ? ThemeMode.dark
+                      : ThemeMode.light,
+                );
 
-                await homeViewModel.fetchUsers();
+                // await homeViewModel.fetchUsers();
+                await homeViewModel.fetchUsersFromCache();
 
                 setState(() {});
 
@@ -141,9 +143,7 @@ final class _UserList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<HomeViewModel, HomeState>(
-      listener: (context, state) {
-        print(state.users);
-      },
+      listener: (context, state) {},
 
       child: BlocSelector<HomeViewModel, HomeState, List<User>>(
         selector: (state) {

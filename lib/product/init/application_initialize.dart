@@ -4,6 +4,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_logger/easy_logger.dart';
 import 'package:flashcard/product/init/config/app_environment.dart';
 import 'package:flashcard/product/state/container/product_state_container.dart';
+import 'package:flashcard/product/state/container/product_state_items.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kartal/kartal.dart';
@@ -47,6 +48,8 @@ final class ApplicationInitialize {
     };
 
       _productEnvironmentWithContainer();
+
+      await ProductStateItems.productCache.init();
   }
 
 

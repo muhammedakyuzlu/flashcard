@@ -1,4 +1,5 @@
-
+import 'package:core/core.dart';
+import 'package:flashcard/product/cache/product_cache.dart';
 import 'package:flashcard/product/service/manager/product_service_manager.dart';
 import 'package:flashcard/product/state/view_model/product_view_model.dart';
 import 'package:get_it/get_it.dart';
@@ -11,6 +12,7 @@ final class ProductContainer {
   /// Product core required items
   static void setup() {
     _getIt
+      ..registerSingleton(ProductCache(cacheManager: HiveCacheManager()))
       ..registerSingleton<ProductNetworkManager>(ProductNetworkManager.base())
       ..registerLazySingleton<ProductViewModel>(ProductViewModel.new);
   }
