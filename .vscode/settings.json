@@ -15,7 +15,9 @@
   "[dart]": {
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    "editor.rulers": [200],
+    "editor.rulers": [
+      200
+    ],
     "editor.selectionHighlight": false,
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggestSelection": "first",
@@ -30,5 +32,6 @@
     "tab.activeBorderTop": "#FFE81F"
   },
   "editor.inlineSuggest.enabled": true,
-  "editor.tabSize": 4
+  "editor.tabSize": 4,
+  "C_Cpp_Runner.msvcBatchPath": ""
 }
