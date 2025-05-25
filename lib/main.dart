@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:widgets/widgets.dart';
 
-void main() async {
+Future<void> main() async {
   // Initialize the application [language, orientation, etc.]
   await ApplicationInitialize().make();
   runApp(ProductLocalization(child: const StateInitialize(child: _MyApp())));

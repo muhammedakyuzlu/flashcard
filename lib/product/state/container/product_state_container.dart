@@ -12,8 +12,10 @@ final class ProductContainer {
   /// Product core required items
   static void setup() {
     _getIt
-      ..registerSingleton(ProductCache(cacheManager: HiveCacheManager()))
       ..registerSingleton<ProductNetworkManager>(ProductNetworkManager.base())
+      ..registerSingleton<ProductCache>(
+        ProductCache(cacheManager: HiveCacheManager()),
+      )
       ..registerLazySingleton<ProductViewModel>(ProductViewModel.new);
   }
 

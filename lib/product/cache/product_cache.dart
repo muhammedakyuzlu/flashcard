@@ -18,7 +18,7 @@ final class ProductCache {
 
     // register cache models instead of passing model list.
     _cacheManager
-      ..registerCacheModel<UserCacheModel>(UserCacheModel.empty());
+      .registerCacheModel<UserCacheModel>(UserCacheModel.empty());
   }
 
   late final HiveCacheOperation<UserCacheModel> userCacheOperation =

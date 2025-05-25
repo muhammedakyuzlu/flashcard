@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:core/src/cache/core/cache_manager.dart';
 import 'package:core/src/cache/core/cache_model.dart';
 import 'package:hive/hive.dart';

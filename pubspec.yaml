@@ -48,9 +48,11 @@ dependencies:
 
 
 dev_dependencies:
-  auto_route_generator: ^9.0.0
+  integration_test:
+    sdk: flutter
   flutter_test:
     sdk: flutter
+  auto_route_generator: ^9.0.0
   very_good_analysis: ^7.0.0
   flutter_launcher_icons: ^0.14.3
   device_preview: ^1.2.0

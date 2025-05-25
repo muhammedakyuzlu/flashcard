@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flashcard/feature/home/view/mixin/home_view_mixin.dart';
+import 'package:flashcard/feature/home/view/widget/home_user_list.dart';
 import 'package:flashcard/feature/home/view_model/home_state.dart';
 import 'package:flashcard/feature/home/view_model/home_view_model.dart';
 import 'package:flashcard/product/init/config/app_environment.dart';
@@ -35,7 +36,8 @@ class _HomeViewState extends BaseState<HomeView> with HomeViewMixin {
       create: (context) => homeViewModel,
 
       child: Scaffold(
-        appBar: AppBar(title: const Text('Material App Bar')),
+        appBar: const HomeAppBar(),
+
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
 
@@ -51,22 +53,13 @@ class _HomeViewState extends BaseState<HomeView> with HomeViewMixin {
                 }
 
                 // _users = await loginService.users();
-
-                productViewModel.changeThemeMode(
-                  productViewModel.state.themeMode == ThemeMode.light
-                      ? ThemeMode.dark
-                      : ThemeMode.light,
-                );
-
                 await homeViewModel.fetchUsers();
-                // await homeViewModel.fetchUsersFromCache();
-                // await homeViewModel.deleteAllUsersFromCache();
 
                 setState(() {});
 
                 // SuccessDialog.show(title: 'title', context: context);
               },
-              child: Text(AppEnvironmentItems.apiKey.value),
+              child: Text('Fetch Users From API'),
             ),
             const Text('Home View'),
             ElevatedButton(
@@ -82,9 +75,35 @@ class _HomeViewState extends BaseState<HomeView> with HomeViewMixin {
 
             // change theme
             ElevatedButton(
-              onPressed: () {},
-              child: const Text(LocaleKeys.general_button_save).tr(),
+              onPressed: () {
+                productViewModel.changeThemeMode(
+                  productViewModel.state.themeMode == ThemeMode.light
+                      ? ThemeMode.dark
+                      : ThemeMode.light,
+                );
+
+              },
+              child: const Text('change theme'),
             ),
+
+                        // change theme
+            ElevatedButton(
+              onPressed: () async {
+                await homeViewModel.deleteAllUsersFromCache();
+              },
+              child: const Text('Delete All Users Cache'),
+            ),
+                        // change theme
+            ElevatedButton(
+              onPressed: () async {
+                await homeViewModel.fetchUsersFromCache();
+              },
+              child: const Text('Fetch Users From Cache'),
+            ),
+
+
+            
+
 
             Container(
               height: 200,
@@ -130,7 +149,7 @@ class _HomeViewState extends BaseState<HomeView> with HomeViewMixin {
                 ),
               ),
             ),
-            const Expanded(child: _UserList()),
+            const Expanded(child: _UserBlocList()),
           ],
         ),
       ),
@@ -138,8 +157,8 @@ class _HomeViewState extends BaseState<HomeView> with HomeViewMixin {
   }
 }
 
-final class _UserList extends StatelessWidget {
-  const _UserList();
+final class _UserBlocList extends StatelessWidget {
+  const _UserBlocList();
 
   @override
   Widget build(BuildContext context) {
@@ -154,17 +173,7 @@ final class _UserList extends StatelessWidget {
         builder: (context, state) {
           if (state.isEmpty) return const SizedBox.shrink();
 
-          return ListView.builder(
-            itemCount: state.length,
-
-            itemBuilder: (BuildContext context, int index) {
-              return ListTile(
-                title: Text(state[index].userId.toString()),
-
-                subtitle: Text(state[index].body.toString()),
-              );
-            },
-          );
+          return  HomeUserList(users: state);
         },
       ),
     );
