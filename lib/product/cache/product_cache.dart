@@ -10,7 +10,15 @@ final class ProductCache {
   final CacheManager _cacheManager;
 
   Future<void> init() async {
-    await _cacheManager.init(items: [UserCacheModel.empty()]);
+    // await _cacheManager.init(items: [UserCacheModel.empty()]);
+
+
+      // initializes hives folder
+    await _cacheManager.init();
+
+    // register cache models instead of passing model list.
+    _cacheManager
+      ..registerCacheModel<UserCacheModel>(UserCacheModel.empty());
   }
 
   late final HiveCacheOperation<UserCacheModel> userCacheOperation =

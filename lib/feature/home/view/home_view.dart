@@ -58,8 +58,9 @@ class _HomeViewState extends BaseState<HomeView> with HomeViewMixin {
                       : ThemeMode.light,
                 );
 
-                // await homeViewModel.fetchUsers();
-                await homeViewModel.fetchUsersFromCache();
+                await homeViewModel.fetchUsers();
+                // await homeViewModel.fetchUsersFromCache();
+                // await homeViewModel.deleteAllUsersFromCache();
 
                 setState(() {});
 

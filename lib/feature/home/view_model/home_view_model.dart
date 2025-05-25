@@ -40,6 +40,12 @@ final class HomeViewModel extends BaseCubit<HomeState> {
     // }
   }
 
+  // delete all users from cache
+  Future<void> deleteAllUsersFromCache() async {
+    ProductStateItems.productCache.userCacheOperation.clear();
+    emit(state.copyWith(users: []));
+  }
+
   void _saveItems(List<User> user) {
     for (final element in user) {
       ProductStateItems.productCache.userCacheOperation.add(

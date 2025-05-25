@@ -10,8 +10,8 @@ void main() {
     await initTests();
 
     final coreManager = HiveCacheManager(path: 'test/hive');
-
-    await coreManager.init(items: [UserCache.empty()]);
+    await coreManager.init();
+    coreManager.registerCacheModel(UserCache.empty());
   });
 
   test('Add a data for database', () {
