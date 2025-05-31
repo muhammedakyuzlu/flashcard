@@ -35,14 +35,15 @@ dependencies:
   vexana: ^5.0.3
 
 
+  # chinese pinyin
+  pinyin: ^3.3.0
+
   widgets:
     path: module/widgets
 
   # Modules
   gen:
     path: module/gen
-  common:
-    path: module/common
   core:
     path: module/core
 
