@@ -15,6 +15,14 @@
       ]
     },
     {
+      "name": "TEST flashcard",
+      "request": "launch",
+      "type": "dart",
+      "args": [
+        "--target=test/flash_card/flash_card.dart"
+      ]
+    },
+    {
       "name": "flashcard (profile mode)",
       "request": "launch",
       "type": "dart",

@@ -58,9 +58,9 @@ final class CustomColorScheme {
   /// Light dark scheme set
   static const darkColorScheme = ColorScheme(
     brightness: Brightness.dark,
-    primary: Color(0xffb3c5ff),
+    primary: Color(0xff222433),
     surfaceTint: Color(0xffb3c5ff),
-    onPrimary: Color(0xff192e60),
+    onPrimary: Color(0xffD8E6FE),
     primaryContainer: Color(0xff314578),
     onPrimaryContainer: Color(0xffdae1ff),
     secondary: Color(0xffc1c6dd),
@@ -75,7 +75,7 @@ final class CustomColorScheme {
     onError: Color(0xff690005),
     errorContainer: Color(0xff93000a),
     onErrorContainer: Color(0xffffdad6),
-    surface: Color(0xff121318),
+    surface: Color(0xff121318), // app bar color
     onSurface: Color(0xffe3e2e9),
     onSurfaceVariant: Color(0xffc5c6d0),
     outline: Color(0xff8f909a),
